@@ -241,13 +241,21 @@ public class Gerenciador {
             doc.getDocumentElement().normalize();
 
             String dados = "DADOS-GERAIS";
-
             NodeList dadosGerais = doc.getElementsByTagName(dados);
 
             String nomeDoPesquisador;
             nomeDoPesquisador = dadosGerais.item(0).getAttributes().getNamedItem("NOME-COMPLETO").getTextContent();
+            String paisDeNascimento = dadosGerais.item(0).getAttributes().getNamedItem("PAIS-DE-NASCIMENTO").getTextContent();
+            System.out.println(paisDeNascimento);
 
+            dados = "RESUMO-CV";
+            NodeList dadosResumo = doc.getElementsByTagName(dados);
+            String resumoCV = dadosResumo.item(0).getAttributes().getNamedItem("TEXTO-RESUMO-CV-RH").getTextContent();
+            System.out.println(resumoCV);
+            
             Pesquisador pesquisador = new Pesquisador(nomeDoPesquisador);
+            pesquisador.setPaisDeNascimento(paisDeNascimento);
+            pesquisador.setResumoCV(resumoCV);
             pesquisadores.add(pesquisador);
 
             this.pesquisadorLogado = pesquisador;

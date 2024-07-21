@@ -1,0 +1,8 @@
+entidades/CapituloPublicado.class
+view/Main.class
+entidades/ProducaoBibliografica.class
+entidades/LivroPublicado.class
+entidades/ArtigoPublicado.class
+servico/Gerenciador.class
+entidades/TrabalhoEmEvento.class
+entidades/Pesquisador.class
