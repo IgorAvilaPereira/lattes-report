@@ -9,6 +9,14 @@ public class Pesquisador {
     private String outrasInformacoesRelevantes;
     private EnderecoProfissional enderecoProfissional;
   
+    public EnderecoProfissional getEnderecoProfissional() {
+        return enderecoProfissional;
+    }
+
+    public void setEnderecoProfissional(EnderecoProfissional enderecoProfissional) {
+        this.enderecoProfissional = enderecoProfissional;
+    }
+
     public String getOutrasInformacoesRelevantes() {
         return outrasInformacoesRelevantes;
     }
