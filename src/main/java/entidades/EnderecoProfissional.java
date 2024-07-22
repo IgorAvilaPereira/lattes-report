@@ -7,6 +7,8 @@ public class EnderecoProfissional {
     private String nomeOrgao;
     private String logradouro;
     private String pais;
+    private String uf;
+    private String telefone;
     private String cep;
     private String cidade;
     private String bairro;
@@ -19,6 +21,25 @@ public class EnderecoProfissional {
     
     public EnderecoProfissional(NodeList node) {
         this.nomeInstituicao = node.item(0).getAttributes().getNamedItem("NOME-INSTITUICAO-EMPRESA").getTextContent();        
+        this.nomeOrgao = node.item(0).getAttributes().getNamedItem("NOME-ORGAO").getTextContent();                
+        this.logradouro = node.item(0).getAttributes().getNamedItem("LOGRADOURO-COMPLEMENTO").getTextContent();        
+        this.cep = node.item(0).getAttributes().getNamedItem("CEP").getTextContent();        
+        this.pais = node.item(0).getAttributes().getNamedItem("PAIS").getTextContent();        
+        this.uf = node.item(0).getAttributes().getNamedItem("UF").getTextContent();        
+        this.cidade = node.item(0).getAttributes().getNamedItem("CIDADE").getTextContent();        
+        this.bairro = node.item(0).getAttributes().getNamedItem("BAIRRO").getTextContent();
+        this.ddd = node.item(0).getAttributes().getNamedItem("DDD").getTextContent();
+        this.telefone = node.item(0).getAttributes().getNamedItem("TELEFONE").getTextContent();
+        this.homePage = node.item(0).getAttributes().getNamedItem("HOME-PAGE").getTextContent();
+    }
+
+        
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
     
     public String getNomeInstituicao() {
@@ -81,6 +102,14 @@ public class EnderecoProfissional {
         return "EnderecoProfissional [nomeInstituicao=" + nomeInstituicao + ", nomeOrgao=" + nomeOrgao + ", logradouro="
                 + logradouro + ", pais=" + pais + ", cep=" + cep + ", cidade=" + cidade + ", bairro=" + bairro
                 + ", ddd=" + ddd + ", homePage=" + homePage + "]";
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
 

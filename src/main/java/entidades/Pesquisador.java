@@ -8,7 +8,16 @@ public class Pesquisador {
     private String resumoCV;    
     private String outrasInformacoesRelevantes;
     private EnderecoProfissional enderecoProfissional;
+    private FormacaoAcademica formacaoAcademica;
   
+    public FormacaoAcademica getFormacaoAcademica() {
+        return formacaoAcademica;
+    }
+
+    public void setFormacaoAcademica(FormacaoAcademica formacaoAcademica) {
+        this.formacaoAcademica = formacaoAcademica;
+    }
+
     public EnderecoProfissional getEnderecoProfissional() {
         return enderecoProfissional;
     }
@@ -64,8 +73,11 @@ public class Pesquisador {
     public String toString() {
         return "Pesquisador [nome=" + nome + ", paisDeNascimento=" + paisDeNascimento + ", resumoCV=" + resumoCV
                 + ", outrasInformacoesRelevantes=" + outrasInformacoesRelevantes + ", enderecoProfissional="
-                + enderecoProfissional + ", producoesBibliograficas=" + producoesBibliograficas + "]";
+                + enderecoProfissional + ", formacaoAcademica=" + formacaoAcademica + ", producoesBibliograficas="
+                + producoesBibliograficas + "]";
     }
+
+    
 
 
 

@@ -41,10 +41,11 @@ public class Gerenciador {
                 carregaDadosDoCurriculo(listOfFiles[i]);
             }
         }
+        
     }
 
     private void carregaDadosDoCurriculo(File arquivo){
-        carregaNomeDoPesquisador(arquivo);
+        carregaNomeDoPesquisador(arquivo);        
         carregaTrabalhosEmEventos(arquivo);
         carregaArtigosPublicados(arquivo);
         carregaLivrosPublicados(arquivo);
@@ -256,7 +257,6 @@ public class Gerenciador {
                 dados = "OUTRAS-INFORMACOES-RELEVANTES";
                 NodeList dadosOutrasInformacoesRelevantes = doc.getElementsByTagName(dados);            
                 outrasInformacoesRelevantes = dadosOutrasInformacoesRelevantes.item(0).getAttributes().getNamedItem("OUTRAS-INFORMACOES-RELEVANTES").getTextContent();
-                // System.out.println(outrasInformacoesRelevantes);   
             } catch(Exception e){
                 System.out.println("Sem outras Informações relevantes...");
             }
@@ -265,16 +265,19 @@ public class Gerenciador {
             pesquisador.setPaisDeNascimento(paisDeNascimento);
             pesquisador.setResumoCV(resumoCV);
             pesquisador.setOutrasInformacoesRelevantes(outrasInformacoesRelevantes);
-            // pesquisador.setEnderecoProfissional(new EnderecoProfissional(doc.getElementsByTagName("ENDERECO-PROFISSIONA")));
-            System.out.println(pesquisador);
+            pesquisador.setEnderecoProfissional(new EnderecoProfissional(doc.getElementsByTagName("ENDERECO-PROFISSIONAL")));
+            pesquisador.setFormacaoAcademica(new FormacaoAcademica(doc));            
             pesquisadores.add(pesquisador);
-
-
+            System.out.println("==========");
+            System.out.println(pesquisador);
+            System.out.println("==========");
             this.pesquisadorLogado = pesquisador;
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
+
+        
     }
 
     private void carregaTrabalhosEmEventos(File arquivo){
