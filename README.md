@@ -48,6 +48,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests c
 
 - [Daniel dos Santos](https://github.com/dsantosr)
 - [Welderson Bruce](https://github.com/brvcelose)
+- [Igor Avila Pereira](https://github.com/IgorAvilaPereira)
 
 ## Licença
 
