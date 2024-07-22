@@ -7,6 +7,7 @@ public class Pesquisador {
     private String paisDeNascimento;  
     private String resumoCV;    
     private String outrasInformacoesRelevantes;
+    private EnderecoProfissional enderecoProfissional;
   
     public String getOutrasInformacoesRelevantes() {
         return outrasInformacoesRelevantes;
