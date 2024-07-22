@@ -84,6 +84,7 @@ public class Gerenciador {
             pesquisadorLogado = pesquisadores.get(resposta - 1);
 
             System.out.println("\nLogin do pesquisador '" + pesquisadorLogado.getNome() + "' realizado com sucesso!");
+            entrada.close();
         }
     }
 
@@ -123,6 +124,8 @@ public class Gerenciador {
                 }
                 default -> System.out.println("Insira um valor válido.");
             }
+            entrada.close();
+
         }
     }
 
@@ -223,6 +226,7 @@ public class Gerenciador {
             document.open();
             document.add(new Paragraph(new Phrase(10f,relatorio, FontFactory.getFont(FontFactory.TIMES_ROMAN,10))));
             document.close();
+            entrada.close();
 
         }catch (FileNotFoundException eita){
             System.out.println("Não foi possível abrir ou alterar o arquivo.");
