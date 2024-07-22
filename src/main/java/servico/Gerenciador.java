@@ -267,7 +267,8 @@ public class Gerenciador {
             pesquisador.setOutrasInformacoesRelevantes(outrasInformacoesRelevantes);
             pesquisador.setEnderecoProfissional(new EnderecoProfissional(doc.getElementsByTagName("ENDERECO-PROFISSIONAL")));
             pesquisador.setFormacaoAcademica(new FormacaoAcademica(doc));            
-            pesquisador.setAtuacoesProfissionais(new AtuacoesProfissionais(doc));         
+            //  TODO: bug
+            // pesquisador.setAtuacoesProfissionais(new AtuacoesProfissionais(doc));         
             pesquisadores.add(pesquisador);
             System.out.println("==========");
             System.out.println(pesquisador);
