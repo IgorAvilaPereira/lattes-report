@@ -3,12 +3,31 @@ package entidades;
 import java.util.ArrayList;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 public class AtuacoesProfissionais {
     private ArrayList<AtuacaoProfissional> vetAtuacaoProfissional;
 
+    public AtuacoesProfissionais(){
+        this.vetAtuacaoProfissional = new ArrayList<>();
+    }
+
     // TODO: fazer o carregando...
     public AtuacoesProfissionais(Document doc) {
+        this();
+        NodeList nodeList = doc.getElementsByTagName("VINCULOS");        
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            try {
+                AtuacaoProfissional atuacaoProfissional = new AtuacaoProfissional();
+                atuacaoProfissional.setNomeInstituicao(null);
+                atuacaoProfissional.setVinculo(nodeList.item(i).getAttributes().getNamedItem("OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO").getTextContent() + ". "+nodeList.item(i).getAttributes().getNamedItem("OUTRAS-INFORMACOES").getTextContent());                
+                this.vetAtuacaoProfissional.add(atuacaoProfissional);
+                // System.out.println("1"+nodeList.item(i).getAttributes().getNamedItem("NOME-INSTITUICAO").getTextContent());
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
+
         // NodeList nodeList =
         // doc.getElementsByTagName("ENSINO-FUNDAMENTAL-PRIMEIRO-GRAU");
         // try {
@@ -70,6 +89,12 @@ public class AtuacoesProfissionais {
         this.vetAtuacaoProfissional = vetAtuacaoProfissional;
     }
 
+    @Override
+    public String toString() {
+        return "AtuacoesProfissionais [vetAtuacaoProfissional=" + vetAtuacaoProfissional + "]";
+    }
+
+    
     
 
 }

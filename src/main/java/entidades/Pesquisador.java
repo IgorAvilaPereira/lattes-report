@@ -83,9 +83,11 @@ public class Pesquisador {
     public String toString() {
         return "Pesquisador [nome=" + nome + ", paisDeNascimento=" + paisDeNascimento + ", resumoCV=" + resumoCV
                 + ", outrasInformacoesRelevantes=" + outrasInformacoesRelevantes + ", enderecoProfissional="
-                + enderecoProfissional + ", formacaoAcademica=" + formacaoAcademica + ", producoesBibliograficas="
-                + producoesBibliograficas + "]";
+                + enderecoProfissional + ", formacaoAcademica=" + formacaoAcademica + ", atuacoesProfissionais="
+                + atuacoesProfissionais + ", producoesBibliograficas=" + producoesBibliograficas + "]";
     }
+
+  
 
     
 
