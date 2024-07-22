@@ -5,9 +5,17 @@ import java.util.ArrayList;
 public class Pesquisador {
     private final String nome;
     private String paisDeNascimento;  
-    private String resumoCV;
-    
+    private String resumoCV;    
+    private String outrasInformacoesRelevantes;
   
+    public String getOutrasInformacoesRelevantes() {
+        return outrasInformacoesRelevantes;
+    }
+
+    public void setOutrasInformacoesRelevantes(String outrasInformacoesRelevantes) {
+        this.outrasInformacoesRelevantes = outrasInformacoesRelevantes;
+    }
+
     private final ArrayList<ProducaoBibliografica> producoesBibliograficas;
 
     public Pesquisador(String nome){

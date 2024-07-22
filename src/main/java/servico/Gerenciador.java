@@ -245,17 +245,26 @@ public class Gerenciador {
 
             String nomeDoPesquisador;
             nomeDoPesquisador = dadosGerais.item(0).getAttributes().getNamedItem("NOME-COMPLETO").getTextContent();
-            String paisDeNascimento = dadosGerais.item(0).getAttributes().getNamedItem("PAIS-DE-NASCIMENTO").getTextContent();
-            System.out.println(paisDeNascimento);
-
+            String paisDeNascimento = dadosGerais.item(0).getAttributes().getNamedItem("PAIS-DE-NASCIMENTO").getTextContent();         
+                        
             dados = "RESUMO-CV";
             NodeList dadosResumo = doc.getElementsByTagName(dados);
-            String resumoCV = dadosResumo.item(0).getAttributes().getNamedItem("TEXTO-RESUMO-CV-RH").getTextContent();
-            System.out.println(resumoCV);
+            String resumoCV = dadosResumo.item(0).getAttributes().getNamedItem("TEXTO-RESUMO-CV-RH").getTextContent();           
+            
+            String outrasInformacoesRelevantes;
+            try{               
+                dados = "OUTRAS-INFORMACOES-RELEVANTES";
+                NodeList dadosOutrasInformacoesRelevantes = doc.getElementsByTagName(dados);            
+                outrasInformacoesRelevantes = dadosOutrasInformacoesRelevantes.item(0).getAttributes().getNamedItem("OUTRAS-INFORMACOES-RELEVANTES").getTextContent();
+                System.out.println(outrasInformacoesRelevantes);   
+            } catch(Exception e){
+                System.out.println("Sem outras Informações relevantes...");
+            }
             
             Pesquisador pesquisador = new Pesquisador(nomeDoPesquisador);
             pesquisador.setPaisDeNascimento(paisDeNascimento);
             pesquisador.setResumoCV(resumoCV);
+            pesquisador.setOutrasInformacoesRelevantes(outrasInformacoesRelevantes);
             pesquisadores.add(pesquisador);
 
             this.pesquisadorLogado = pesquisador;
