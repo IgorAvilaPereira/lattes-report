@@ -251,7 +251,7 @@ public class Gerenciador {
             NodeList dadosResumo = doc.getElementsByTagName(dados);
             String resumoCV = dadosResumo.item(0).getAttributes().getNamedItem("TEXTO-RESUMO-CV-RH").getTextContent();           
             
-            String outrasInformacoesRelevantes;
+            String outrasInformacoesRelevantes =  null;
             try{               
                 dados = "OUTRAS-INFORMACOES-RELEVANTES";
                 NodeList dadosOutrasInformacoesRelevantes = doc.getElementsByTagName(dados);            
