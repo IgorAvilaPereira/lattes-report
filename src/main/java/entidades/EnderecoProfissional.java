@@ -1,5 +1,7 @@
 package entidades;
 
+import org.w3c.dom.NodeList;
+
 public class EnderecoProfissional {
     private String nomeInstituicao;
     private String nomeOrgao;
@@ -10,6 +12,14 @@ public class EnderecoProfissional {
     private String bairro;
     private String ddd;
     private String homePage;
+
+    public EnderecoProfissional() {
+        
+    }
+    
+    public EnderecoProfissional(NodeList node) {
+        this.nomeInstituicao = node.item(0).getAttributes().getNamedItem("NOME-INSTITUICAO-EMPRESA").getTextContent();        
+    }
     
     public String getNomeInstituicao() {
         return nomeInstituicao;
@@ -64,6 +74,13 @@ public class EnderecoProfissional {
     }
     public void setHomePage(String homePage) {
         this.homePage = homePage;
+    }
+
+    @Override
+    public String toString() {
+        return "EnderecoProfissional [nomeInstituicao=" + nomeInstituicao + ", nomeOrgao=" + nomeOrgao + ", logradouro="
+                + logradouro + ", pais=" + pais + ", cep=" + cep + ", cidade=" + cidade + ", bairro=" + bairro
+                + ", ddd=" + ddd + ", homePage=" + homePage + "]";
     }
 
 

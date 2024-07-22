@@ -60,6 +60,13 @@ public class Pesquisador {
         this.resumoCV = resumoCV;
     }
 
+    @Override
+    public String toString() {
+        return "Pesquisador [nome=" + nome + ", paisDeNascimento=" + paisDeNascimento + ", resumoCV=" + resumoCV
+                + ", outrasInformacoesRelevantes=" + outrasInformacoesRelevantes + ", enderecoProfissional="
+                + enderecoProfissional + ", producoesBibliograficas=" + producoesBibliograficas + "]";
+    }
+
 
 
 }
