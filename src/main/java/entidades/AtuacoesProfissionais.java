@@ -7,6 +7,7 @@ import org.w3c.dom.Document;
 public class AtuacoesProfissionais {
     private ArrayList<AtuacaoProfissional> vetAtuacaoProfissional;
 
+    // TODO: fazer o carregando...
     public AtuacoesProfissionais(Document doc) {
         // NodeList nodeList =
         // doc.getElementsByTagName("ENSINO-FUNDAMENTAL-PRIMEIRO-GRAU");
