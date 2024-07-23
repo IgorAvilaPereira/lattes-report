@@ -31,7 +31,7 @@ public class Main {
                 case 3 -> loopMain = false;
                 default -> System.out.println("Insira um valor válido\n");
             }
-            entrada.close();
+            // entrada.close();
         }
     }
 }

@@ -15,18 +15,20 @@ public class AtuacoesProfissionais {
     // TODO: fazer o carregando...
     public AtuacoesProfissionais(Document doc) {
         this();
-        NodeList nodeList = doc.getElementsByTagName("VINCULOS");        
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            try {
-                AtuacaoProfissional atuacaoProfissional = new AtuacaoProfissional();
-                atuacaoProfissional.setNomeInstituicao(null);
-                atuacaoProfissional.setVinculo(nodeList.item(i).getAttributes().getNamedItem("OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO").getTextContent() + ". "+nodeList.item(i).getAttributes().getNamedItem("OUTRAS-INFORMACOES").getTextContent());                
-                this.vetAtuacaoProfissional.add(atuacaoProfissional);
-                // System.out.println("1"+nodeList.item(i).getAttributes().getNamedItem("NOME-INSTITUICAO").getTextContent());
-            } catch (Exception e) {
-                // TODO: handle exception
+        // NodeList nodeListAtuacao = doc.getElementsByTagName("ATUACAO-PROFISSIONAL");        
+        // for
+            NodeList nodeList = doc.getElementsByTagName("VINCULOS");        
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                try {
+                    AtuacaoProfissional atuacaoProfissional = new AtuacaoProfissional();
+                    atuacaoProfissional.setNomeInstituicao(null);
+                    atuacaoProfissional.setVinculo(nodeList.item(i).getAttributes().getNamedItem("OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO").getTextContent() + ". "+nodeList.item(i).getAttributes().getNamedItem("OUTRAS-INFORMACOES").getTextContent());                
+                    this.vetAtuacaoProfissional.add(atuacaoProfissional);
+                    // System.out.println("1"+nodeList.item(i).getAttributes().getNamedItem("NOME-INSTITUICAO").getTextContent());
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
             }
-        }
 
         // NodeList nodeList =
         // doc.getElementsByTagName("ENSINO-FUNDAMENTAL-PRIMEIRO-GRAU");
