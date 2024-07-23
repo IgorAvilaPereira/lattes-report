@@ -8,27 +8,36 @@ import org.w3c.dom.NodeList;
 public class AtuacoesProfissionais {
     private ArrayList<AtuacaoProfissional> vetAtuacaoProfissional;
 
-    public AtuacoesProfissionais(){
+    public AtuacoesProfissionais() {
         this.vetAtuacaoProfissional = new ArrayList<>();
     }
 
-    // TODO: fazer o carregando...
     public AtuacoesProfissionais(Document doc) {
         this();
-        // NodeList nodeListAtuacao = doc.getElementsByTagName("ATUACAO-PROFISSIONAL");        
-        // for
-            NodeList nodeList = doc.getElementsByTagName("VINCULOS");        
-            for (int i = 0; i < nodeList.getLength(); i++) {
+        NodeList nodeListAtuacao = doc.getElementsByTagName("ATUACAO-PROFISSIONAL");
+        for (int i = 0; i < nodeListAtuacao.getLength(); i++) {       
+            NodeList nodeList = doc.getElementsByTagName("VINCULOS");
+            for (int j = 0; j < nodeList.getLength(); j++) {
                 try {
                     AtuacaoProfissional atuacaoProfissional = new AtuacaoProfissional();
-                    atuacaoProfissional.setNomeInstituicao(null);
-                    atuacaoProfissional.setVinculo(nodeList.item(i).getAttributes().getNamedItem("OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO").getTextContent() + ". "+nodeList.item(i).getAttributes().getNamedItem("OUTRAS-INFORMACOES").getTextContent());                
+                    atuacaoProfissional.setNomeInstituicao(nodeListAtuacao.item(i).getAttributes().getNamedItem("NOME-INSTITUICAO").getTextContent());
+                    atuacaoProfissional.setVinculo(nodeList.item(j).getAttributes()
+                            .getNamedItem("OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO").getTextContent() + ". "
+                            + nodeList.item(j).getAttributes().getNamedItem("OUTRAS-INFORMACOES").getTextContent());
+
+                    atuacaoProfissional.setMesInicio(nodeList.item(j).getAttributes()
+                    .getNamedItem("MES-INICIO").getTextContent());
+                    atuacaoProfissional.setAnoInicio(nodeList.item(j).getAttributes()
+                    .getNamedItem("ANO-INICIO").getTextContent());
+                    atuacaoProfissional.setMesFim(nodeList.item(j).getAttributes()
+                    .getNamedItem("MES-FIM").getTextContent());
+                    atuacaoProfissional.setAnoFim(nodeList.item(j).getAttributes()
+                    .getNamedItem("ANO-FIM").getTextContent());
                     this.vetAtuacaoProfissional.add(atuacaoProfissional);
-                    // System.out.println("1"+nodeList.item(i).getAttributes().getNamedItem("NOME-INSTITUICAO").getTextContent());
                 } catch (Exception e) {
-                    // TODO: handle exception
                 }
             }
+        }
 
         // NodeList nodeList =
         // doc.getElementsByTagName("ENSINO-FUNDAMENTAL-PRIMEIRO-GRAU");
@@ -95,8 +104,5 @@ public class AtuacoesProfissionais {
     public String toString() {
         return "AtuacoesProfissionais [vetAtuacaoProfissional=" + vetAtuacaoProfissional + "]";
     }
-
-    
-    
 
 }
