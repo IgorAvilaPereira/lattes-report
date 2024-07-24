@@ -24,7 +24,6 @@ public class AtuacoesProfissionais {
                     atuacaoProfissional.setVinculo(nodeList.item(j).getAttributes()
                             .getNamedItem("OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO").getTextContent() + ". "
                             + nodeList.item(j).getAttributes().getNamedItem("OUTRAS-INFORMACOES").getTextContent());
-
                     atuacaoProfissional.setMesInicio(nodeList.item(j).getAttributes()
                     .getNamedItem("MES-INICIO").getTextContent());
                     atuacaoProfissional.setAnoInicio(nodeList.item(j).getAttributes()
