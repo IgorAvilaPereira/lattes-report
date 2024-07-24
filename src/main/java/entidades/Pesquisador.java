@@ -45,7 +45,6 @@ public class Pesquisador {
     public void setResumoCV(String resumoCV) {
         this.resumoCV = resumoCV;
     }
-
      
     public AtuacoesProfissionais getAtuacoesProfissionais() {
         return atuacoesProfissionais;
@@ -86,13 +85,4 @@ public class Pesquisador {
                 + enderecoProfissional + ", formacaoAcademica=" + formacaoAcademica + ", atuacoesProfissionais="
                 + atuacoesProfissionais + ", producoesBibliograficas=" + producoesBibliograficas + "]";
     }
-
-  
-
-    
-
-    
-
-
-
 }
