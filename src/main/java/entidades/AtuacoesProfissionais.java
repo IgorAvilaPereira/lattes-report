@@ -102,7 +102,7 @@ public class AtuacoesProfissionais {
 
     @Override
     public String toString() {
-        return "AtuacoesProfissionais [vetAtuacaoProfissional=" + vetAtuacaoProfissional + "]";
+        return vetAtuacaoProfissional.toString();
     }
 
 }

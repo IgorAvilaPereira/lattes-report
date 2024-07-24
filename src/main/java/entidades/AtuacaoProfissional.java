@@ -46,8 +46,8 @@ public class AtuacaoProfissional {
     }
     @Override
     public String toString() {
-        return "AtuacaoProfissional [nomeInstituicao=" + nomeInstituicao + ", vinculo=" + vinculo + ", mesInicio="
-                + mesInicio + ", anoInicio=" + anoInicio + ", mesFim=" + mesFim + ", anoFim=" + anoFim + "]";
+        return "AtuacaoProfissional:\n"+ nomeInstituicao + "\n" + vinculo + "\n Mês de Início:"
+                + mesInicio + ", Ano de Início:" + anoInicio + "\n Mês de Fim:" + mesFim + ", Ano de Fim=" + anoFim + "\n";
     }
 
    
