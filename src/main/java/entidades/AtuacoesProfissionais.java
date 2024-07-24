@@ -102,7 +102,11 @@ public class AtuacoesProfissionais {
 
     @Override
     public String toString() {
-        return vetAtuacaoProfissional.toString();
+        String resultado = "";
+        for (AtuacaoProfissional atuacaoProfissional : this.vetAtuacaoProfissional) {
+            resultado += atuacaoProfissional.toString();
+        }   
+        return resultado;
     }
 
 }

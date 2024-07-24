@@ -18,8 +18,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Gerenciador {
     private Pesquisador pesquisadorLogado;
@@ -151,14 +154,13 @@ public class Gerenciador {
         resultado.append(pesquisadorLogado.getResumoCV() + "\n");
         resultado.append(pesquisadorLogado.getEnderecoProfissional().toString() + "\n");
         resultado.append(pesquisadorLogado.getAtuacoesProfissionais().toString() + "\n");      
-        
 
+        resultado.append("Produção Bibliográfica: \n\n");       
         for (ProducaoBibliografica producaoBibliografica : this.pesquisadorLogado.getProducoesBibliograficas()) {
-            resultado.append(" Titulo da Produção: ").append(producaoBibliografica.getTitulo()).append("; \n" +
+            resultado.append(" Titulo: ").append(producaoBibliografica.getTitulo()).append("\n" +
                     "").append(" Autores: ").append(producaoBibliografica.autoresToString()).append(" \n" +
                             "")
-                    .append(" Tipo: ").append(producaoBibliografica.getTipo());
-
+                    /* append(" Tipo: ")*/.append(producaoBibliografica.getTipo()).append(producaoBibliografica.getDetalhamento().toString().replace("[","").replace("]", ""));
             resultado.append("\n\n");
         }
         return resultado.toString() + "\nOutras Informações Relevantes:\n"+ pesquisadorLogado.getOutrasInformacoesRelevantes();
@@ -351,14 +353,36 @@ public class Gerenciador {
                         ano = dadosBasicos.item(i).getAttributes().getNamedItem("ANO-DO-TRABALHO").getTextContent();
                     }
 
-                    NodeList autores = ((Element) node).getElementsByTagName("AUTORES");
-                    for (int i = 0; i < autores.getLength(); i++) {
-                        String autor = autores.item(i).getAttributes().getNamedItem("NOME-COMPLETO-DO-AUTOR")
-                                .getTextContent();
-                        arrayListAutores.add(autor);
-                    }
+                    NodeList nodeDetalhamento = ((Element) node).getElementsByTagName("DETALHAMENTO-DO-TRABALHO");
+                    ArrayList<String> detalhamento = new ArrayList<>();
 
+                        detalhamento.add(nodeDetalhamento.item(0).getAttributes().getNamedItem("NOME-DO-EVENTO")
+                                .getTextContent());
+
+                                detalhamento.add(nodeDetalhamento.item(0).getAttributes().getNamedItem("CIDADE-DO-EVENTO")
+                                .getTextContent());
+
+                                detalhamento.add(nodeDetalhamento.item(0).getAttributes().getNamedItem("ANO-DE-REALIZACAO")
+                                .getTextContent());
+                        
+                    
+
+                    
+
+                    NodeList autores = ((Element) node).getElementsByTagName("AUTORES");
+                    Set<String> vetAutores = new HashSet<>();
+                    for (int i = 0; i < autores.getLength(); i++) {                        
+                        // String autor = autores.item(i).getAttributes().getNamedItem("NOME-COMPLETO-DO-AUTOR")
+                        //         .getTextContent();
+                        // arrayListAutores.add(autor);
+                        vetAutores.add(autores.item(i).getAttributes().getNamedItem("NOME-COMPLETO-DO-AUTOR").getTextContent().trim());
+                    }
+                    Iterator<String> x = vetAutores.iterator();
+                    while(x.hasNext()){
+                        arrayListAutores.add(x.next());
+                    }                    
                     ProducaoBibliografica producao = new TrabalhoEmEvento(arrayListAutores, titulo, ano);
+                    producao.setDetalhamento(detalhamento);
                     this.pesquisadorLogado.addProducao(producao);
                 }
 
