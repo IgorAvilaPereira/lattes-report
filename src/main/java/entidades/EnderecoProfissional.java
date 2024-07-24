@@ -97,12 +97,7 @@ public class EnderecoProfissional {
         this.homePage = homePage;
     }
 
-    @Override
-    public String toString() {
-        return "EnderecoProfissional [nomeInstituicao=" + nomeInstituicao + ", nomeOrgao=" + nomeOrgao + ", logradouro="
-                + logradouro + ", pais=" + pais + ", cep=" + cep + ", cidade=" + cidade + ", bairro=" + bairro
-                + ", ddd=" + ddd + ", homePage=" + homePage + "]";
-    }
+ 
 
     public String getTelefone() {
         return telefone;
@@ -111,6 +106,15 @@ public class EnderecoProfissional {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return "EnderecoProfissional:\n"+nomeInstituicao + "\n" + nomeOrgao + "\n"
+                + logradouro + "\n" + pais + "\n" + uf + "\n" + telefone + "\n" + cep + "\n"
+                + cidade + "\n" + bairro + ", (" + ddd + ") "+telefone+"\n" + homePage+"\n";
+    }
+
+    
 
 
 }

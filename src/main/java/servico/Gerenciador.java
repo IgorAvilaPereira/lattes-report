@@ -145,6 +145,12 @@ public class Gerenciador {
 
     private String gerarMiniCurriculo() {
         StringBuilder resultado = new StringBuilder();
+
+        resultado.append(pesquisadorLogado.getNome()  + "\n");
+        resultado.append(pesquisadorLogado.getPaisDeNascimento()+ "\n");
+        resultado.append(pesquisadorLogado.getResumoCV() + "\n");
+        resultado.append(pesquisadorLogado.getEnderecoProfissional().toString() + "\n");
+        resultado.append(pesquisadorLogado.getAtuacoesProfissionais().toString() + "\n");      
         
 
         for (ProducaoBibliografica producaoBibliografica : this.pesquisadorLogado.getProducoesBibliograficas()) {
@@ -155,7 +161,7 @@ public class Gerenciador {
 
             resultado.append("\n\n");
         }
-        return pesquisadorLogado.toString() + "\n"+resultado.toString();
+        return resultado.toString() + "\n"+ pesquisadorLogado.getOutrasInformacoesRelevantes();
 
     }
 
