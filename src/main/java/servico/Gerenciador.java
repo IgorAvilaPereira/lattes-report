@@ -377,9 +377,9 @@ public class Gerenciador {
                         // arrayListAutores.add(autor);
                         vetAutores.add(autores.item(i).getAttributes().getNamedItem("NOME-COMPLETO-DO-AUTOR").getTextContent().trim());
                     }
-                    Iterator<String> x = vetAutores.iterator();
-                    while(x.hasNext()){
-                        arrayListAutores.add(x.next());
+                    Iterator<String> iterator = vetAutores.iterator();
+                    while(iterator.hasNext()){
+                        arrayListAutores.add(iterator.next());
                     }                    
                     ProducaoBibliografica producao = new TrabalhoEmEvento(arrayListAutores, titulo, ano);
                     producao.setDetalhamento(detalhamento);

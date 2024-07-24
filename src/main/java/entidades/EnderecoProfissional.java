@@ -109,7 +109,7 @@ public class EnderecoProfissional {
 
     @Override
     public String toString() {
-        return "EnderecoProfissional:\n"+nomeInstituicao + "\n" + nomeOrgao + "\n"
+        return "\nEndereço Profissional:\n"+nomeInstituicao + "\n" + nomeOrgao + "\n"
                 + logradouro + "\n" + pais + "\n" + cidade + " - "+uf + "\n" + cep + "\n"
                 + cidade + "\n" + bairro + ", (" + ddd + ") "+telefone+"\n" + homePage+"\n";
     }
