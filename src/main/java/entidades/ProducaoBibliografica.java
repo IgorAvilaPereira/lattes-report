@@ -38,7 +38,7 @@ public abstract class ProducaoBibliografica {
 
         // autoresString.append(this.autores.get(this.autores.size()-1)).append(";");
 
-        return this.autores.toString().replace("[", "").replace("]", "");
+        return this.autores.toString().replace("[", "").replace("]", "").replace(";", "");
     }
 
     public Integer getAno() {

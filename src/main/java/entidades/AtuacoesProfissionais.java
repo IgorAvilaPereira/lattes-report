@@ -104,7 +104,7 @@ public class AtuacoesProfissionais {
     public String toString() {
         String resultado = "";
         for (AtuacaoProfissional atuacaoProfissional : this.vetAtuacaoProfissional) {
-            resultado += atuacaoProfissional.toString();
+            resultado += atuacaoProfissional.toString()+"\n\n";
         }   
         return resultado;
     }

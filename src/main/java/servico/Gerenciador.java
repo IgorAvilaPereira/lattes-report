@@ -157,8 +157,8 @@ public class Gerenciador {
 
         resultado.append("Produção Bibliográfica: \n\n");       
         for (ProducaoBibliografica producaoBibliografica : this.pesquisadorLogado.getProducoesBibliograficas()) {
-            resultado.append(" Titulo: ").append(producaoBibliografica.getTitulo()).append("\n" +
-                    "").append(" Autores: ").append(producaoBibliografica.autoresToString()).append(" \n" +
+            resultado.append("Titulo: ").append(producaoBibliografica.getTitulo()).append("\n" +
+                    "").append("Autores: ").append(producaoBibliografica.autoresToString()).append(" \n" +
                             "")
                     /* append(" Tipo: ")*/.append(producaoBibliografica.getTipo()).append(producaoBibliografica.getDetalhamento().toString().replace("[","").replace("]", ""));
             resultado.append("\n\n");
