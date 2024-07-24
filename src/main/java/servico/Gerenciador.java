@@ -161,7 +161,7 @@ public class Gerenciador {
 
             resultado.append("\n\n");
         }
-        return resultado.toString() + "\n"+ pesquisadorLogado.getOutrasInformacoesRelevantes();
+        return resultado.toString() + "\nOutras Informações Relevantes:\n"+ pesquisadorLogado.getOutrasInformacoesRelevantes();
 
     }
 
